@@ -1,3 +1,4 @@
+// TODO: encriptar y desencriptar contrasenia para almacenamiento
 let usuario = {
     nombre: null,
     password: null,
@@ -8,7 +9,6 @@ let usuario = {
 let usuarios = JSON.parse(localStorage.getItem("usuarios"));
 
 window.onload = () => {
-
 
     document.querySelector("#crearCuenta").onclick = event => {
         event.preventDefault();
@@ -69,17 +69,30 @@ function validarPassword(password) {
     return esValido;
 }
 
+function usuarioExistente(mail) {
+    let existeUsuario = false;
+    const usuario = usuarios.find(usuario => usuario.mail === mail);
+    console.log(usuario);
+    if (usuario !== undefined) {
+        alertar("Ya existe un usuario con ese mail");
+        existeUsuario = true;
+    }
+    return existeUsuario;
+}
+
 function validarDatos() {
     let sonValidos = validarNombre(usuario.nombre) && 
                      validarPassword(usuario.password) &&
-                     validarMail(usuario.mail);
+                     validarMail(usuario.mail) &&
+                     !usuarioExistente(usuario.mail);
+    usuario.imagen = (usuario.imagen === null ? "./../assets/user.png" : usuario.imagen);
     return sonValidos;
 }
 
 function crearCuenta() {
     obtenerDatosUsuario();
     if (validarDatos()) {
-        window.open("./lista-tareas.html", "_self");
+        window.open("./html/lista-tareas.html", "_self");
     }
 }
 
@@ -90,14 +103,4 @@ function agregarUsuario() {
     usuarios.push(usuario);
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
     sessionStorage.setItem("usuario", JSON.stringify(usuario));
-}
-
-function alertar(msj) {
-    const alerta = document.querySelector(".alert");
-    alerta.classList.remove("hide");
-    alerta.querySelector(".texto").innerText = msj;
-    alerta.querySelector(".closebtn").onclick = () => {
-        alerta.classList.add("hide");
-    };
-    
 }

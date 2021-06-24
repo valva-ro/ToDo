@@ -19,8 +19,10 @@ window.onload = function () {
 function cargarContenido(crearTareas, agregarEventListeners) {
     const usuario = JSON.parse(sessionStorage.getItem("usuario"));
     if (usuario) {
-        document.querySelector("#username").innerText = usuario.nombre;
-        document.querySelector(".user-image").src = usuario.imagen;
+        const nombreUsuario = document.querySelector("#username");
+        const imgUsuario = document.querySelector(".user-image");
+        nombreUsuario.innerText = usuario.nombre;
+        imgUsuario.src = (imgUsuario !== null ? usuario.imagen : "./../assets/user.png");
     }
     crearTareas(agregarEventListeners);
 }
