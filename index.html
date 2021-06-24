@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/crear-cuenta-login.css">
+  <script src="./js/script.js"></script>
+  <title>ToDo</title>
+</head>
+<body>
+  <form>
+    <h1>Nueva cuenta</h1>
+
+    <div class="image">
+      <input type="file" id="inputAgregarImagen" accept="image/*" hidden/>
+      <label id="agregarImg" for="inputAgregarImagen">
+        <img src="./assets/plus.png" alt="Agregar Imagen">
+      </label>
+    </div>
+
+    <div class="alert hide">
+      <span class="texto"></span>
+      <span class="closebtn">x</span>
+    </div>
+
+    <label>
+      Nombre:
+      <input type="text" id="nombre">
+    </label>
+    <label>
+      Contraseña:
+      <input type="password" id="password">
+    </label>
+    <label>
+      Repetir contraseña:
+      <input type="password" id="passwordRepetida">
+    </label>
+    <label>
+      Email:
+      <input type="text" id="mail">
+    </label>
+
+    <button id="crearCuenta">Crear Cuenta</button>
+    <p>¿Ya tenés una cuenta? <a href="./html/login.html">Iniciá sesión</a></p>
+
+    <div class="form-footer">
+      <p>ToDo</p>
+    </div>
+  </form>
+  
+</body>
+</html>
