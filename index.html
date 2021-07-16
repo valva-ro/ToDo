@@ -4,14 +4,22 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles/crear-cuenta-login.css">
-  <script src="./js/crearCuenta.js"></script>
-  <script src="./js/common.js"></script>
+  <link rel="stylesheet" href="./styles/login.css">
+  <script src="./scripts/models/RequestManager.js"></script>
+  <script src="./scripts/models/DatosUsuario.js"></script>
+  <script src="./scripts/common.js"></script>
+  <script src="./scripts/crearCuenta.js"></script>
   <title>ToDo</title>
 </head>
 <body>
-  <form>
+
+  <form name="formLogin">
     <h1>Nueva cuenta</h1>
+    
+    <div class="alert hide">
+      <span class="texto"></span>
+      <span class="closebtn">x</span>
+    </div>
 
     <div class="image">
       <input type="file" id="inputAgregarImagen" accept="image/*" hidden/>
@@ -20,30 +28,29 @@
       </label>
     </div>
 
-    <div class="alert hide">
-      <span class="texto"></span>
-      <span class="closebtn">x</span>
-    </div>
-
     <label>
       Nombre:
-      <input type="text" id="nombre">
+      <input type="text" name="nombre">
+    </label>
+    <label>
+      Apellido:
+      <input type="text" name="apellido">
     </label>
     <label>
       Contraseña:
-      <input type="password" id="password">
+      <input type="password" name="contrasenia">
     </label>
     <label>
       Repetir contraseña:
-      <input type="password" id="passwordRepetida">
+      <input type="password" name="repetirContrasenia">
     </label>
     <label>
       Email:
-      <input type="text" id="mail">
+      <input type="text" name="mail">
     </label>
 
-    <button id="crearCuenta">Crear Cuenta</button>
-    <p>¿Ya tenés una cuenta? <a href="./html/login.html">Iniciá sesión</a></p>
+    <button type="submit">Crear Cuenta</button>
+    <p>¿Ya tenés una cuenta? <a href="./login.html">Iniciá sesión</a></p>
 
     <div class="form-footer">
       <p>ToDo</p>

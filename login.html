@@ -4,15 +4,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../styles/crear-cuenta-login.css">
-  <script src="./../js/login.js"></script>
-  <script src="./../js/common.js"></script>
+  <link rel="stylesheet" href="./styles/login.css">
+  <script src="./scripts/models/RequestManager.js"></script>
+  <script src="./scripts/common.js"></script>
+  <script src="./scripts/login.js"></script>
   <title>ToDo</title>
 </head>
 <body>
-  <form>
+  <form name="formLogin">
     <h1>Iniciar sesión</h1>
-
+    
     <div class="alert hide">
       <span class="texto"></span>
       <span class="closebtn">x</span>
@@ -20,15 +21,15 @@
 
     <label>
       Email:
-      <input type="text" id="mail">
+      <input type="text" name="mail">
     </label>
     <label>
       Contraseña:
-      <input type="password" id="password">
+      <input type="password" name="contrasenia">
     </label>
 
-    <button id="login">Iniciar sesión</button>
-    <p>¿Todavía no tenés una cuenta? <a href="./../index.html">Creá una</a></p>
+    <button name="login" type="submit">Iniciar sesión</button>
+    <p>¿Todavía no tenés una cuenta? <a href="./index.html">Creá una</a></p>
 
     <div class="form-footer">
       <p>ToDo</p>

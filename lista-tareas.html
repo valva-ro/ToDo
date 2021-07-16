@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/lista-tareas.css">
+  <script src="./scripts/models/RequestManager.js"></script>
+  <script src="./scripts/models/DatosUsuario.js"></script>
+  <script src="./scripts/common.js"></script>
+  <script src="./scripts/listaTareas.js"></script>
+  <title>ToDo</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="./index.html">My ToDo's</a>
+    </nav>
+
+    <div class="user-info">
+      <div class="user-image"></div>
+      <a id="cerrarSesion">cerrar sesión</a>
+    </div>
+  </header>
+
+  <div class="alert hide">
+    <span class="texto"></span>
+    <span class="closebtn">x</span>
+  </div>
+
+  <form class="nueva-tarea" name="formNuevaTarea">
+    <input type="text" name="nuevaTarea" placeholder="Nueva tarea">
+    <button type="submit">
+      <img src="./assets/plus.png" alt="Agregar Tarea">
+    </button>
+    <button name="ordenar">
+      <img src="./assets/sort.png" alt="Ordenar tareas">
+    </button>
+  </form>
+
+  <ul class="tareas-pendientes"></ul>
+
+  <h2 class="titulo-terminadas">Tareas terminadas</h2>
+  <ul class="tareas-terminadas"></ul>
+
+</body>
+</html>

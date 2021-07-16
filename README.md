@@ -3,10 +3,6 @@
 
 # ToDo
 
-Proyecto en proceso. 
-
-Por ahora es simplemente una página web que permite al usuario agregar tareas pendientes y marcarlas como hechas.
-
 ## Construido con 🛠️
 
 * [HTML](https://developer.mozilla.org/es/docs/Web/HTML) - Contenido

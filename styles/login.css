@@ -4,11 +4,12 @@ h1 {
   color: rgb(116, 116, 116);
   font-weight: 300;
   margin-top: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 4em;
 }
 
 form {
   position: relative;
+  height: 100%;
   width: 30em;
   background-color: white;
   display: flex;
@@ -28,6 +29,43 @@ form:after {
   top: 0;
   left: 0;
   background: linear-gradient(var(--primary), var(--secondary));
+}
+
+.image {
+    height: 9em;
+    width: 9em;
+    border-radius: 50%;
+    background-color: var(--app-grey);
+    margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image label {
+    margin: 0;
+    background: none;
+    color: inherit;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image label img {
+    width: 40%;
+    border-radius: 50%;
+    background-color: transparent;
+    opacity: .5;
+}
+
+.image label img.seleccionada {
+  width: 90%;
+  opacity: .9;
+}
+
+.image label:hover, button:hover {
+  cursor: pointer;
 }
 
 input {
@@ -50,42 +88,6 @@ label {
   margin-top: 1.5em;
 }
 
-.image {
-  height: 9em;
-  width: 9em;
-  border-radius: 50%;
-  background-color: var(--app-grey);
-  margin-bottom: 2em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image label {
-  margin: 0;
-  background: none;
-	color: inherit;
-	border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image label img {
-  width: 40%;
-  background-color: transparent;
-  opacity: .5;
-}
-
-.image label img.seleccionada {
-  width: 90%;
-  opacity: .9;
-}
-
-.image label:hover, button:hover {
-  cursor: pointer;
-}
-
 button {
   padding: .5em 2em;
   background-color: var(--primary);
@@ -94,7 +96,7 @@ button {
   margin-bottom: 1em;
   font-weight: 400;
   font-size: 1em;
-  transition: background-color .75s;;
+  transition: background-color .75s;
 }
 
 button:hover {
@@ -102,7 +104,17 @@ button:hover {
 }
 
 .form-footer {
-  margin-top: 1em;
+  margin: 30px 10px 0;
   color: grey;
   font-size: 2em;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+  transition: color .5s;;
+}
+
+a:hover {
+  color: var(--secondary);
 }

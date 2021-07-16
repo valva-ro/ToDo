@@ -22,8 +22,13 @@ a {
   color: rgb(223, 223, 223);
 }
 
-.user-info p {
+.user-info a {
   text-transform: capitalize;
+  margin-left: 10px;
+}
+
+.user-info a:hover {
+  cursor: pointer;
 }
 
 .user-info .user-image {
@@ -33,6 +38,11 @@ a {
   background-color: white;
   margin-left: .7em;
   object-fit: cover;
+}
+
+.user-info .user-image img {
+  width: 100%;
+  border-radius: 50%;
 }
 
 /* Nueva tarea ----------------------------------------------------------- */
@@ -48,7 +58,6 @@ a {
   box-shadow: 2px 2px 10px lightgrey;
   border-radius: .2em;
   z-index: 20;
-  margin-top: 2em;
 }
 
 .nueva-tarea input[type=text] {
@@ -70,20 +79,23 @@ a {
   text-indent: .2em;
 }
 
-.nueva-tarea button {
+.nueva-tarea button, .tarea div.eliminar {
   height: 2em;
   width: 2em;
   background-color: transparent;
   margin-left: 2em;
-  margin-right: 1em;
   opacity: .5;
 }
 
-.nueva-tarea button:hover {
+.tarea button {
+  margin-right: 1em;
+}
+
+.nueva-tarea button:hover, .tarea div.eliminar:hover {
   opacity: 1;
 }
 
-.nueva-tarea button img {
+.nueva-tarea button img, .tarea div.eliminar img {
   height: 100%;
   width: 100%;
 }
@@ -160,6 +172,11 @@ a {
   box-shadow: 2px 2px 5px lightgrey;
 }
 
+.tarea .descripcion div {
+  display: flex;
+  align-items: center;
+}
+
 .tarea .nombre {
   color: rgb(95, 95, 95);
 }
@@ -211,13 +228,4 @@ a {
 .tareas-terminadas .tarea .descripcion .nombre {
   color: grey;
   text-decoration: line-through;
-}
-
-.alert {
-  position: relative;
-}
-
-.closebtn {
-  position: absolute;
-  right: 60px;
 }

@@ -22,41 +22,31 @@ button {
   border-radius: 3px;
 }
 
-a {
-  text-decoration: none;
-  color: var(--primary);
-  transition: color .5s;;
-}
-
-a:hover {
-  color: var(--secondary);
-}
-
 /* Alerta ---------------------------------------------------------------------- */
 .hide {
-  display: none;
+  visibility: hidden;
 }
 
 .alert {
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: #ff6a5f;
   color: white;
+  margin-bottom: 2em;
   width: 100%;
 }
 
-.alert:hover {
-  cursor: pointer;
+.alert span {
+  padding: 10px 40px;
 }
 
 .closebtn {
-  margin-left: 15px;
   color: white;
   font-weight: bold;
-  float: right;
   font-size: 22px;
-  line-height: 20px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: color 0.3s;
 }
 
 .closebtn:hover {
