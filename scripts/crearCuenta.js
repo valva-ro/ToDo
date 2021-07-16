@@ -15,6 +15,8 @@ window.onload = () => {
         if (validarDatos(nombre.value, apellido.value, contrasenia.value, repetirContrasenia.value, mail.value)) {
             datosUsuario = new DatosUsuario(nombre.value, apellido.value, contrasenia.value, mail.value);
             requestManager.crearUsuario(datosUsuario, rutaImagen);
+        } else {
+            alertar("Alguno de los datos ingresados no es válido");
         }
     });
 
