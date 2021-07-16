@@ -126,5 +126,6 @@ function eliminarTarea(elementoTarea, id) {
 
 function cerrarSesion() {
   localStorage.removeItem("token");
+  localStorage.removeItem("currentUser");
   location.reload();
 }

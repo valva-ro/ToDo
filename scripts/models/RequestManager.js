@@ -36,7 +36,7 @@ class RequestManager {
                 }
             })
             .catch(err => {
-                alertar(err);
+                console.error(err);
             });
     }
 
@@ -46,13 +46,17 @@ class RequestManager {
         settings.body = JSON.stringify({ email, password, });
         fetch(`${this.url}/users/login`, settings)
             .then(respuesta => {
-                return respuesta.json();
+                if (respuesta.ok)
+                    return respuesta.json();
+                else
+                    return Promise.reject("Mail y/o contraseña inválidos");
             })
             .then(datos => {
-                let rutaImagen = localStorage.getItem(this.token);
                 if (datos.jwt !== undefined) {
+                    let rutaImagen = localStorage.getItem(email);
                     this.token = datos.jwt;
                     localStorage.setItem('token', this.token);
+                    localStorage.setItem(email, rutaImagen);
                     location.href = './lista-tareas.html';
                     document.querySelector("div.user-image").innerHTML = `<img src="${rutaImagen}" alt="Imagen de usuario">`
                 }
@@ -76,10 +80,11 @@ class RequestManager {
                 return respuesta.json();
             }).then(datos => {
                 renderizarTarea(datos);
+                return datos;
             }).then(datos => {
                 agregarEventListener(datos);
             }).catch(err => {
-                alertar(err);
+                console.error(err);
             });
     }
 
