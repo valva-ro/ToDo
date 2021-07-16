@@ -1,5 +1,6 @@
 const requestManager = new RequestManager('https://ctd-todo-api.herokuapp.com/v1');
 comprobarToken();
+setInterval(comprobarToken, 60000);
 window.onload = () => {
 
   const form = document.forms.formNuevaTarea;
@@ -91,7 +92,7 @@ function ordenarPorID() {
 
 function comprobarToken() {
   const token = localStorage.getItem("token");
-  if (!token || token == undefined) {
+  if (!token || token === "undefined") {
     location.href = "./login.html"
   }
 }
