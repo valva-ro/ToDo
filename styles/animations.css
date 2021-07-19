@@ -1,0 +1,95 @@
+@keyframes down {
+    0% {
+        transform: translateY(-2em);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes loadingTask {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+        background-color: rgb(218, 218, 218);
+    }
+}
+
+@keyframes loadingScreen {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.contenedor-loading-screen {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F6F6F6;
+}
+
+.loading-screen {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-top: 5px solid var(--primary);
+    border-bottom: 5px solid var(--secondary);
+    position: relative;
+    animation: loadingScreen 2s infinite ease-in-out;
+}
+
+.loading-screen::before, .loading-screen::after{
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;  
+}
+
+.loading-screen::before {
+  top: 5px;
+  left: 10px;
+  background: var(--primary);
+}
+
+.loading-screen::after{
+  bottom: 5px;
+  right: 10px;
+  background: var(--secondary);
+}
+
+.animar-entrada {
+    animation-name: down;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-duration: 500ms;
+}
+
+.tarea.skeleton .descripcion .nombre, .tarea.skeleton .descripcion .timestamp {
+    display: block;
+    height: 1em;
+    width: 10em;
+    background-color: rgb(235, 235, 235);
+    transform-origin: 0 0;
+    animation-name: loadingTask;
+    animation-iteration-count: infinite;
+    animation-duration: 1200ms;
+}
+
+.tarea.skeleton .descripcion .nombre {
+    width: 30em;
+}
+
+.display-none {
+    display: none;
+}

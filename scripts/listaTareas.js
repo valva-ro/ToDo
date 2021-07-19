@@ -1,6 +1,7 @@
 const requestManager = new RequestManager('https://ctd-todo-api.herokuapp.com/v1');
 comprobarToken();
 setInterval(comprobarToken, 60000);
+
 window.onload = () => {
 
   const form = document.forms.formNuevaTarea;
@@ -9,11 +10,11 @@ window.onload = () => {
   const rutaImagen = img !== null ? img : "./assets/user.png";
   document.querySelector("div.user-image").innerHTML = `<img src="${rutaImagen}" alt="Imagen de usuario">`
 
+  requestManager.crearTareas();
+
   document.querySelector("#cerrarSesion").addEventListener("click", () => {
     cerrarSesion();
   });
-
-  requestManager.crearTareas();
 
   form.onsubmit = event => {
     event.preventDefault();
@@ -28,6 +29,9 @@ window.onload = () => {
 }
 
 function crearTareas(tareas) {
+  document.querySelector(".contenedor-loading-screen").classList.toggle("display-none");
+  document.querySelector("header").classList.toggle("display-none");
+  document.querySelector("main").classList.toggle("display-none");
   document.querySelector(".tareas-pendientes").innerHTML = "";
   document.querySelector(".tareas-terminadas").innerHTML = "";
   tareas.forEach(tarea => {
