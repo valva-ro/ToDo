@@ -36,8 +36,12 @@ function crearTareas(tareas) {
 }
 
 function crearTarea(tarea) {
-  renderizarTarea(tarea);
-  agregarEventListener(tarea);
+  const promesa = new Promise((resolve, reject) => {
+    resolve(renderizarTarea(tarea));
+  });
+  promesa.then(() => {
+    agregarEventListener(tarea);
+  })
 }
 
 function renderizarTarea(tarea) {

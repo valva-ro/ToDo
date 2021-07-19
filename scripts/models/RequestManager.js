@@ -58,7 +58,6 @@ class RequestManager {
                     localStorage.setItem('token', this.token);
                     localStorage.setItem(email, rutaImagen);
                     location.href = './lista-tareas.html';
-                    document.querySelector("div.user-image").innerHTML = `<img src="${rutaImagen}" alt="Imagen de usuario">`
                 }
             })
             .catch(err => {
