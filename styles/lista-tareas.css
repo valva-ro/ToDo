@@ -79,7 +79,7 @@ a {
   text-indent: .2em;
 }
 
-.nueva-tarea button, .tarea div.eliminar {
+.nueva-tarea button, .tarea button.eliminar {
   height: 2em;
   width: 2em;
   background-color: transparent;
@@ -87,15 +87,19 @@ a {
   opacity: .5;
 }
 
+.tarea button.eliminar {
+  filter: invert(15%) sepia(83%) saturate(6078%) hue-rotate(359deg) brightness(98%) contrast(120%);
+}
+
 .tarea button {
   margin-right: 1em;
 }
 
-.nueva-tarea button:hover, .tarea div.eliminar:hover {
+.nueva-tarea button:hover, .tarea button.eliminar:hover {
   opacity: 1;
 }
 
-.nueva-tarea button img, .tarea div.eliminar img {
+.nueva-tarea button img, .tarea button.eliminar img {
   height: 100%;
   width: 100%;
 }

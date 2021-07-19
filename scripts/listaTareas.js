@@ -38,9 +38,9 @@ function renderizarTarea(tarea) {
         <p class="nombre">${tarea.description}</p>
         <div>
           <p class="timestamp">Creada el: ${fecha}</p>
-          <div class="eliminar">
+          <button class="eliminar">
             <img src="./assets/trash-bin.png">
-          </div>
+          </button>
         </div>
       </div>
     </li>
@@ -100,7 +100,7 @@ function comprobarToken() {
 function agregarEventListener(tarea) {
   const elementoTarea = document.querySelector(`#tarea${tarea.id}`);
   const btnTerminar = elementoTarea.querySelector(".not-done");
-  const btnEliminar = elementoTarea.querySelector("div.eliminar");
+  const btnEliminar = elementoTarea.querySelector("button.eliminar");
   btnTerminar.onclick = function () {
     cambiarTareaDeContenedor(tarea.id, tarea.completed);
   };

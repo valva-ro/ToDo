@@ -62,7 +62,7 @@ class RequestManager {
                 }
             })
             .catch(err => {
-                alertar(err);
+                console.error(err);;
             });
     }
 
