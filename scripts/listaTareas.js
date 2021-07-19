@@ -27,12 +27,25 @@ window.onload = () => {
   };
 }
 
+function crearTareas(tareas) {
+  document.querySelector(".tareas-pendientes").innerHTML = "";
+  document.querySelector(".tareas-terminadas").innerHTML = "";
+  tareas.forEach(tarea => {
+    crearTarea(tarea);
+  });
+}
+
+function crearTarea(tarea) {
+  renderizarTarea(tarea);
+  agregarEventListener(tarea);
+}
+
 function renderizarTarea(tarea) {
   const fecha = formatearFecha(tarea.createdAt)
   const contenedor = tarea.completed ? ".tareas-terminadas" : ".tareas-pendientes";
   const contenedorTareas = document.querySelector(contenedor);
   const template = `
-    <li class="tarea" id=tarea${tarea.id}>
+    <li class="tarea animar-entrada" id=tarea${tarea.id}>
       <div class="not-done"></div>
       <div class="descripcion">
         <p class="nombre">${tarea.description}</p>

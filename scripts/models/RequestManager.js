@@ -78,12 +78,10 @@ class RequestManager {
         fetch(`${this.url}/tasks`, settings)
             .then(respuesta => {
                 return respuesta.json();
-            }).then(datos => {
-                renderizarTarea(datos);
-                return datos;
-            }).then(datos => {
-                agregarEventListener(datos);
-            }).catch(err => {
+            }).then(tarea => {
+                crearTarea(tarea);
+            })
+            .catch(err => {
                 console.error(err);
             });
     }
@@ -97,15 +95,10 @@ class RequestManager {
                     return respuesta.json();
                 })
                 .then(tareas => {
-                    tareas.forEach(tarea => {
-                        renderizarTarea(tarea);
-                    });
-                    return tareas;
+                    crearTareas(tareas);
                 })
-                .then(tareas => {
-                    tareas.forEach(tarea => {
-                        agregarEventListener(tarea);
-                    });
+                .catch(err => {
+                    console.error(err);
                 });
 
         }
