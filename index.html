@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/animations.css">
+  <link rel="stylesheet" href="./styles/common.css">
   <link rel="stylesheet" href="./styles/login.css">
   <link rel="shortcut icon" href="./assets/todo1.png" type="image/x-icon">
   <script src="./scripts/models/RequestManager.js"></script>
@@ -14,49 +16,47 @@
 </head>
 <body>
 
-  <form name="formLogin">
-    <h1>Nueva cuenta</h1>
+  <main>
+    <form name="formLogin">
+      <h1>Nueva cuenta</h1>
     
-    <div class="alert hide">
-      <span class="texto"></span>
-      <span class="closebtn">x</span>
-    </div>
-
-    <div class="image">
-      <input type="file" id="inputAgregarImagen" accept="image/*" hidden/>
-      <label id="agregarImg" for="inputAgregarImagen">
-        <img src="./assets/plus.png" alt="Agregar Imagen">
+      <div class="alert hide">
+        <span class="texto"></span>
+        <span class="closebtn">x</span>
+      </div>
+      <div class="image">
+        <input type="file" id="inputAgregarImagen" accept="image/*" hidden/>
+        <label id="agregarImg" for="inputAgregarImagen">
+          <img src="./assets/plus.png" alt="Agregar Imagen">
+        </label>
+      </div>
+      <label>
+        Nombre:
+        <input type="text" name="nombre">
       </label>
-    </div>
-
-    <label>
-      Nombre:
-      <input type="text" name="nombre">
-    </label>
-    <label>
-      Apellido:
-      <input type="text" name="apellido">
-    </label>
-    <label>
-      Contraseña:
-      <input type="password" name="contrasenia">
-    </label>
-    <label>
-      Repetir contraseña:
-      <input type="password" name="repetirContrasenia">
-    </label>
-    <label>
-      Email:
-      <input type="text" name="mail">
-    </label>
-
-    <button type="submit">Crear Cuenta</button>
-    <p>¿Ya tenés una cuenta? <a href="./login.html">Iniciá sesión</a></p>
-
-    <div class="form-footer">
-      <p>ToDo</p>
-    </div>
-  </form>
+      <label>
+        Apellido:
+        <input type="text" name="apellido">
+      </label>
+      <label>
+        Contraseña:
+        <input type="password" name="contrasenia">
+      </label>
+      <label>
+        Repetir contraseña:
+        <input type="password" name="repetirContrasenia">
+      </label>
+      <label>
+        Email:
+        <input type="text" name="mail">
+      </label>
+      <button type="submit">Crear Cuenta</button>
+      <p>¿Ya tenés una cuenta? <a href="./login.html">Iniciá sesión</a></p>
+      <div class="form-footer">
+        <p>ToDo</p>
+      </div>
+    </form>
+  </main>
   
 </body>
 </html>

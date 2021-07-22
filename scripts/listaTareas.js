@@ -29,9 +29,6 @@ window.onload = () => {
 }
 
 function crearTareas(tareas) {
-  document.querySelector(".contenedor-loading-screen").classList.toggle("display-none");
-  document.querySelector("header").classList.toggle("display-none");
-  document.querySelector("main").classList.toggle("display-none");
   document.querySelector(".tareas-pendientes").innerHTML = "";
   document.querySelector(".tareas-terminadas").innerHTML = "";
   tareas.forEach(tarea => {

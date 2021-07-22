@@ -37,7 +37,7 @@
     background-color: #F6F6F6;
 }
 
-.loading-screen {
+.loader {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -48,7 +48,7 @@
     animation: loadingScreen 2s infinite ease-in-out;
 }
 
-.loading-screen::before, .loading-screen::after{
+.loader::before, .loader::after{
   content: "";
   position: absolute;
   width: 10px;
@@ -56,13 +56,13 @@
   border-radius: 50%;  
 }
 
-.loading-screen::before {
+.loader::before {
   top: 5px;
   left: 10px;
   background: var(--primary);
 }
 
-.loading-screen::after{
+.loader::after{
   bottom: 5px;
   right: 10px;
   background: var(--secondary);

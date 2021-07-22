@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles/lista-tareas.css">
   <link rel="stylesheet" href="./styles/animations.css">
+  <link rel="stylesheet" href="./styles/common.css">
+  <link rel="stylesheet" href="./styles/lista-tareas.css">
   <link rel="shortcut icon" href="./assets/todo1.png" type="image/x-icon">
   <script src="./scripts/models/RequestManager.js"></script>
   <script src="./scripts/models/DatosUsuario.js"></script>
@@ -16,7 +17,7 @@
 </head>
 
 <body>
-  <header class="display-none">
+  <header>
     <nav>
       <a href="./index.html">My ToDo's</a>
     </nav>
@@ -27,11 +28,7 @@
     </div>
   </header>
 
-  <div class="contenedor-loading-screen">
-    <div class="loading-screen"></div>
-  </div>
-
-  <main class="display-none">
+  <main>
     <div class="alert hide">
       <span class="texto"></span>
       <span class="closebtn">x</span>

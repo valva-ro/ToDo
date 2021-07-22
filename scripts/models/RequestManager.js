@@ -19,6 +19,7 @@ class RequestManager {
     }
 
     crearUsuario(datosUsuario, rutaImagen) {
+        mostrarSpinner();
         let settings = this.defaultSettings();
         settings.method = "POST";
         settings.body = JSON.stringify(datosUsuario);
@@ -33,14 +34,17 @@ class RequestManager {
                     localStorage.setItem("currentUser", datosUsuario.email);
                     localStorage.setItem(datosUsuario.email, rutaImagen);
                     location.href = './lista-tareas.html';
+                    ocultarSpinner();
                 }
             })
             .catch(err => {
                 console.error(err);
+                ocultarSpinner();
             });
     }
 
     iniciarSesion(email, password) {
+        mostrarSpinner();
         let settings = this.defaultSettings();
         settings.method = "POST";
         settings.body = JSON.stringify({ email, password, });
@@ -58,10 +62,12 @@ class RequestManager {
                     localStorage.setItem('token', this.token);
                     localStorage.setItem(email, rutaImagen);
                     location.href = './lista-tareas.html';
+                    ocultarSpinner();
                 }
             })
             .catch(err => {
-                console.error(err);;
+                alertar(err);
+                ocultarSpinner();
             });
     }
 
