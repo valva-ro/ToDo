@@ -1,4 +1,3 @@
-const requestManager = new RequestManager('https://ctd-todo-api.herokuapp.com/v1');
 let datosUsuario = null;
 
 window.onload = () => {
@@ -8,28 +7,27 @@ window.onload = () => {
     const contrasenia = formLogin.contrasenia;
     const repetirContrasenia = formLogin.repetirContrasenia;
     const mail = formLogin.mail;
-    let rutaImagen = "./assets/user.png";
 
     formLogin.addEventListener("submit", (e) => {
         e.preventDefault();
         if (validarDatos(nombre.value, apellido.value, contrasenia.value, repetirContrasenia.value, mail.value)) {
             datosUsuario = new DatosUsuario(nombre.value, apellido.value, contrasenia.value, mail.value);
-            requestManager.crearUsuario(datosUsuario, rutaImagen);
+            RequestManager.post("/users", datosUsuario)
+                .then(datos => {
+                    if (datos.jwt !== null) {
+                        this.token = datos.jwt;
+                        localStorage.setItem('token', this.token);
+                        location.href = './lista-tareas.html';
+                        ocultarSpinner();
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    ocultarSpinner();
+                });
         } else {
             alertar("Alguno de los datos ingresados no es válido");
         }
-    });
-
-    formLogin.querySelector("#inputAgregarImagen").addEventListener("change", event => {
-        const imagen = event.target.files[0];
-        const imagenHtml = document.querySelector("img");
-        const reader = new FileReader();
-        reader.onload = event => {
-            rutaImagen = event.target.result;
-            imagenHtml.src = rutaImagen;
-            imagenHtml.className += "seleccionada";
-        }
-        reader.readAsDataURL(imagen);
     });
 }
 

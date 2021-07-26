@@ -1,4 +1,3 @@
-const requestManager = new RequestManager('https://ctd-todo-api.herokuapp.com/v1');
 comprobarToken();
 setInterval(comprobarToken, 60000);
 
@@ -6,11 +5,8 @@ window.onload = () => {
 
   const form = document.forms.formNuevaTarea;
   const ordenar = form.ordenar;
-  const img = localStorage.getItem(localStorage.getItem("currentUser"));
-  const rutaImagen = img !== null ? img : "./assets/user.png";
-  document.querySelector("div.user-image").innerHTML = `<img src="${rutaImagen}" alt="Imagen de usuario">`
 
-  requestManager.crearTareas();
+  crearTareas();
 
   document.querySelector("#cerrarSesion").addEventListener("click", () => {
     cerrarSesion();
@@ -28,12 +24,18 @@ window.onload = () => {
   };
 }
 
-function crearTareas(tareas) {
+function crearTareas() {
   document.querySelector(".tareas-pendientes").innerHTML = "";
   document.querySelector(".tareas-terminadas").innerHTML = "";
-  tareas.forEach(tarea => {
-    crearTarea(tarea);
-  });
+  RequestManager.get("/tasks")
+    .then(tareas => {
+      tareas.forEach(tarea => {
+        crearTarea(tarea);
+      });
+    })
+    .catch(err => {
+      console.error(err);
+    });
 }
 
 function crearTarea(tarea) {
@@ -79,7 +81,17 @@ function formatearFecha(f) {
 function agregarTarea() {
   const descripcion = document.forms.formNuevaTarea.nuevaTarea.value
   if (descripcion !== "") {
-    requestManager.agregarTarea(descripcion);
+    const body = {
+      "description": description,
+      "completed": false
+    }
+    RequestManager.post("/tasks", body)
+      .then(tarea => {
+        crearTarea(tarea);
+      })
+      .catch(err => {
+        console.error(err);
+      });
   } else {
     alertar("No se puede crear una tarea sin nombre");
   }
@@ -130,20 +142,22 @@ function agregarEventListener(tarea) {
 function cambiarTareaDeContenedor(id, marcarTerminada) {
   const tarea = document.querySelector(`#tarea${id}`);
   const contenedor = marcarTerminada ? ".tareas-pendientes" : ".tareas-terminadas";
+  const body = {
+    completed: !marcarTerminada
+  }
   document.querySelector(contenedor).appendChild(tarea);
   tarea.querySelector(".not-done").addEventListener("click", () => {
     cambiarTareaDeContenedor(id, !marcarTerminada)
   });
-  requestManager.actualizarTarea(id, !marcarTerminada);
+  RequestManager.put(`/tasks/${id}`, body);
 }
 
 function eliminarTarea(elementoTarea, id) {
   elementoTarea.parentNode.removeChild(elementoTarea);
-  requestManager.eliminarTarea(id);
+  RequestManager.delete(`/tasks/${id}`);
 }
 
 function cerrarSesion() {
   localStorage.removeItem("token");
-  localStorage.removeItem("currentUser");
   location.reload();
 }

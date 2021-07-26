@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="./styles/common.css">
   <link rel="stylesheet" href="./styles/login.css">
   <link rel="shortcut icon" href="./assets/todo1.png" type="image/x-icon">
-  <script src="./scripts/models/RequestManager.js"></script>
   <script src="./scripts/models/DatosUsuario.js"></script>
+  <script src="./scripts/services/RequestManager.js"></script>
   <script src="./scripts/common.js"></script>
   <script src="./scripts/crearCuenta.js"></script>
   <title>ToDo</title>
@@ -23,12 +23,6 @@
       <div class="alert hide">
         <span class="texto"></span>
         <span class="closebtn">x</span>
-      </div>
-      <div class="image">
-        <input type="file" id="inputAgregarImagen" accept="image/*" hidden/>
-        <label id="agregarImg" for="inputAgregarImagen">
-          <img src="./assets/plus.png" alt="Agregar Imagen">
-        </label>
       </div>
       <label>
         Nombre:
