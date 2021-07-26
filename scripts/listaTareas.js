@@ -79,11 +79,11 @@ function formatearFecha(f) {
 }
 
 function agregarTarea() {
-  const descripcion = document.forms.formNuevaTarea.nuevaTarea.value
-  if (descripcion !== "") {
+  const description = document.forms.formNuevaTarea.nuevaTarea.value
+  if (description !== "") {
     const body = {
-      "description": description,
-      "completed": false
+      description,
+      completed: false
     }
     RequestManager.post("/tasks", body)
       .then(tarea => {
