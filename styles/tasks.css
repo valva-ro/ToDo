@@ -10,9 +10,20 @@ a {
   display: block;
   width: fit-content;
   padding: .7em 1em;
-  border-bottom: .2em solid white;
   text-decoration: none;
-  color: white
+  color: white;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+a#home {
+  border-bottom: .2em solid white;
+}
+
+p {
+  padding: .7em 1em;
 }
 
 .user-info {
@@ -45,9 +56,9 @@ a {
   border-radius: 50%;
 }
 
-/* Nueva tarea ----------------------------------------------------------- */
+/* New task ----------------------------------------------------------- */
 
-.nueva-tarea {
+.new-task {
   position: relative;
   display: flex;
   align-items: center;
@@ -60,7 +71,7 @@ a {
   z-index: 20;
 }
 
-.nueva-tarea input[type=text] {
+.new-task input[type=text] {
   border: none;
   flex: 1;
   border-bottom: 1px solid lightgrey;
@@ -69,37 +80,46 @@ a {
   font-size: 1.1em;
 }
 
-.nueva-tarea input:focus {
+.new-task input:focus {
   outline: none;
   border-bottom: 1px solid grey;
 }
 
-.nueva-tarea input::placeholder {
+.new-task input::placeholder {
   color: rgb(197, 197, 197);
   text-indent: .2em;
 }
 
-.nueva-tarea button, .tarea button.eliminar {
+.new-task button, .task button.delete {
   height: 2em;
   width: 2em;
   background-color: transparent;
   margin-left: 2em;
   opacity: .5;
 }
-
-.tarea button.eliminar {
-  filter: invert(15%) sepia(83%) saturate(6078%) hue-rotate(359deg) brightness(98%) contrast(120%);
+ 
+.task button.delete {
+  height: 1.5em;
+  width: 1.5em;
+  opacity: .75;
+  filter: invert(61%) sepia(37%) saturate(4704%) hue-rotate(203deg) brightness(105%) contrast(101%);
 }
 
-.tarea button {
+.task button.delete:hover {
+  filter: invert(47%) sepia(46%) saturate(634%) hue-rotate(224deg) brightness(87%) contrast(90%);
+  opacity: 1;
+  /* lightRed -> filter: invert(15%) sepia(83%) saturate(6078%) hue-rotate(359deg) brightness(98%) contrast(120%); */
+}
+
+.task button {
   margin-right: 1em;
 }
 
-.nueva-tarea button:hover, .tarea button.eliminar:hover {
+.new-task button:hover, .task button.delete:hover {
   opacity: 1;
 }
 
-.nueva-tarea button img, .tarea button.eliminar img {
+.new-task button img, .task button.delete img {
   height: 100%;
   width: 100%;
 }
@@ -113,9 +133,9 @@ a {
   cursor: pointer;
 }
 
-/* Lista de tareas ----------------------------------------------------------- */
+/* Tasks ----------------------------------------------------------- */
 
-.tareas-pendientes {
+.todo-tasks {
   display: flex;
   flex-direction: column;
   width: 70%;
@@ -123,13 +143,13 @@ a {
   margin: 2em 15%;
 }
 
-.tarea {
+.task {
   display: flex;
   align-items: center;
   margin-bottom: 1.5em;
 }
 
-.tarea .not-done {
+.task .not-done {
   position: relative;
   height: 1.5em;
   width: 1.5em;
@@ -140,11 +160,11 @@ a {
   transition: background-color 200ms linear;
 }
 
-.tarea .not-done:hover {
+.task .not-done:hover {
   background-color: var(--secondary);
 }
 
-.tarea:first-child .not-done::before {
+.task:first-child .not-done::before {
   content: '';
   position: absolute;
   bottom: 100%;
@@ -155,7 +175,7 @@ a {
   background-color: var(--secondary);
 }
 
-.tarea:not(:last-child) .not-done::after {
+.task:not(:last-child) .not-done::after {
   content: '';
   position: absolute;
   top: 100%;
@@ -166,7 +186,7 @@ a {
   background-color: var(--secondary);
 }
 
-.tarea .descripcion {
+.task .description {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -176,23 +196,23 @@ a {
   box-shadow: 2px 2px 5px lightgrey;
 }
 
-.tarea .descripcion div {
+.task .description div {
   display: flex;
   align-items: center;
 }
 
-.tarea .nombre {
+.task .name {
   color: rgb(95, 95, 95);
 }
 
-.tarea .timestamp {
+.task .timestamp {
   font-size: .9em;
   color: rgb(134, 134, 134);
 }
 
-/* Tareas terminadas ----------------------------------------------------------- */
+/* Done tasks ----------------------------------------------------------- */
 
-.titulo-terminadas {
+.title-done-tasks {
   position: relative;
   width: 8em;
   text-align: center;
@@ -207,7 +227,7 @@ a {
   z-index: 20;
 }
 
-.tareas-terminadas {
+.done-tasks {
   display: flex;
   flex-direction: column;
   width: 70%;
@@ -215,21 +235,21 @@ a {
   margin: 2em 15%;
 }
 
-.tareas-terminadas .not-done {
+.done-tasks .not-done {
   background-color: lightgrey;
   border-color: grey;
 }
 
-.tareas-terminadas .not-done::before,
-.tareas-terminadas .not-done::after {
+.done-tasks .not-done::before,
+.done-tasks .not-done::after {
   background-color: grey !important;
 }
 
-.tareas-terminadas .tarea .descripcion {
+.done-tasks .task .description {
   background-color: rgb(228, 228, 228);
 }
 
-.tareas-terminadas .tarea .descripcion .nombre {
+.done-tasks .task .description .name {
   color: grey;
   text-decoration: line-through;
 }

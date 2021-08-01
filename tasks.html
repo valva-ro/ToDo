@@ -7,106 +7,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/animations.css">
   <link rel="stylesheet" href="./styles/common.css">
-  <link rel="stylesheet" href="./styles/lista-tareas.css">
+  <link rel="stylesheet" href="./styles/tasks.css">
   <link rel="shortcut icon" href="./assets/todo1.png" type="image/x-icon">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./scripts/services/RequestManager.js"></script>
-  <script src="./scripts/models/DatosUsuario.js"></script>
   <script src="./scripts/common.js"></script>
-  <script src="./scripts/listaTareas.js"></script>
+  <script src="./scripts/tasks.js"></script>
   <title>ToDo</title>
 </head>
 
 <body>
   <header>
     <nav>
-      <a href="#">My ToDo's</a>
+      <a href="#" id="home">My ToDo's</a>
     </nav>
 
     <div class="user-info">
-      <div class="user-image"><img src="./assets/user.png" alt="Usuario"></div>
-      <a id="cerrarSesion">cerrar sesión</a>
+      <p id="user-name"></p>
+      <a id="closeSession">cerrar sesión</a>
     </div>
   </header>
 
   <main>
     <div class="alert hide">
-      <span class="texto"></span>
+      <span class="text"></span>
       <span class="closebtn">x</span>
     </div>
-    <form class="nueva-tarea" name="formNuevaTarea">
-      <input type="text" name="nuevaTarea" placeholder="Nueva tarea">
+    <form class="new-task" name="formNewTask">
+      <input type="text" name="newTask" placeholder="Nueva tarea">
       <button type="submit">
-        <img src="./assets/plus.png" alt="Agregar Tarea">
+        <img src="./assets/plus.png" alt="Agregar tarea">
       </button>
       <button name="ordenar">
         <img src="./assets/sort.png" alt="Ordenar tareas">
       </button>
     </form>
-    <ul class="tareas-pendientes">
-      <li class="tarea skeleton">
+    <ul class="todo-tasks">
+      <li class="task skeleton">
         <div class="descripcion">
           <p class="nombre"></p>
           <div>
             <p class="timestamp"></p>
-            <button class="eliminar">
+            <button class="delete">
               <img src="./assets/trash-bin.png">
             </button>
           </div>
         </div>
       </li>
-      <li class="tarea skeleton" style="opacity: 0.6;">
+      <li class="task skeleton" style="opacity: 0.6;">
         <div class="descripcion">
           <p class="nombre"></p>
           <div>
             <p class="timestamp"></p>
-            <button class="eliminar">
+            <button class="delete">
               <img src="./assets/trash-bin.png">
             </button>
           </div>
         </div>
       </li>
-      <li class="tarea skeleton" style="opacity: 0.3;">
+      <li class="task skeleton" style="opacity: 0.3;">
         <div class="descripcion">
           <p class="nombre"></p>
           <div>
             <p class="timestamp"></p>
-            <button class="eliminar">
+            <button class="delete">
               <img src="./assets/trash-bin.png">
             </button>
           </div>
         </div>
       </li>
     </ul>
-    <h2 class="titulo-terminadas">Tareas terminadas</h2>
-    <ul class="tareas-terminadas">
-      <li class="tarea skeleton">
+    <h2 class="title-done-tasks">Tareas terminadas</h2>
+    <ul class="done-tasks">
+      <li class="task skeleton">
         <div class="descripcion">
           <p class="nombre"></p>
           <div>
             <p class="timestamp"></p>
-            <button class="eliminar">
+            <button class="delete">
               <img src="./assets/trash-bin.png">
             </button>
           </div>
         </div>
       </li>
-      <li class="tarea skeleton" style="opacity: 0.6;">
+      <li class="task skeleton" style="opacity: 0.6;">
         <div class="descripcion">
           <p class="nombre"></p>
           <div>
             <p class="timestamp"></p>
-            <button class="eliminar">
+            <button class="delete">
               <img src="./assets/trash-bin.png">
             </button>
           </div>
         </div>
       </li>
-      <li class="tarea skeleton" style="opacity: 0.3;">
+      <li class="task skeleton" style="opacity: 0.3;">
         <div class="descripcion">
           <p class="nombre"></p>
           <div>
             <p class="timestamp"></p>
-            <button class="eliminar">
+            <button class="delete">
               <img src="./assets/trash-bin.png">
             </button>
           </div>

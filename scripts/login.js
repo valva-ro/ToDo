@@ -8,17 +8,18 @@ window.onload = () => {
             email: formLogin.mail.value,
             password: formLogin.contrasenia.value
         }
+        showSpinner();
         RequestManager.post("/users/login", body)
             .then(datos => {
                 if (datos.jwt !== undefined) {
                     this.token = datos.jwt;
                     localStorage.setItem('token', this.token);
-                    location.href = './lista-tareas.html';
-                    ocultarSpinner();
+                    location.href = './tasks.html';
                 }
             })
             .catch(err => {
                 console.error(err);
+                hideSpinner();
             });
     };
 };

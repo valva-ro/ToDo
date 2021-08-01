@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="./styles/common.css">
   <link rel="stylesheet" href="./styles/login.css">
   <link rel="shortcut icon" href="./assets/todo1.png" type="image/x-icon">
-  <script src="./scripts/models/DatosUsuario.js"></script>
+  <script src="./scripts/models/UserData.js"></script>
   <script src="./scripts/services/RequestManager.js"></script>
   <script src="./scripts/common.js"></script>
-  <script src="./scripts/crearCuenta.js"></script>
+  <script src="./scripts/createAccount.js"></script>
   <title>ToDo</title>
 </head>
 <body>
@@ -21,24 +21,24 @@
       <h1>Nueva cuenta</h1>
     
       <div class="alert hide">
-        <span class="texto"></span>
+        <span class="text"></span>
         <span class="closebtn">x</span>
       </div>
       <label>
         Nombre:
-        <input type="text" name="nombre">
+        <input type="text" name="firstName">
       </label>
       <label>
         Apellido:
-        <input type="text" name="apellido">
+        <input type="text" name="lastName">
       </label>
       <label>
         Contraseña:
-        <input type="password" name="contrasenia">
+        <input type="password" name="password">
       </label>
       <label>
         Repetir contraseña:
-        <input type="password" name="repetirContrasenia">
+        <input type="password" name="repeatedPassword">
       </label>
       <label>
         Email:

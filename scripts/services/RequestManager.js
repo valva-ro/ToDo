@@ -24,14 +24,12 @@ class RequestManager {
     }
 
     static post(endPoint, body) {
-        mostrarSpinner();
         const settings = RequestManager.defaultSettings();
         settings.headers.authorization = RequestManager.getToken();
         settings.method = "POST";
         settings.body = JSON.stringify(body)
         return fetch(this.baseUrl + endPoint, settings)
             .then(data => {
-                ocultarSpinner();
                 return data.json();
             })
     }
