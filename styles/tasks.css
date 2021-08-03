@@ -99,8 +99,10 @@ p {
 }
  
 .task button.delete {
-  height: 1.5em;
-  width: 1.5em;
+  min-height: 1.5em;
+  min-width: 1.5em;
+  max-height: 1.5em;
+  max-width: 1.5em;
   opacity: .75;
   filter: invert(61%) sepia(37%) saturate(4704%) hue-rotate(203deg) brightness(105%) contrast(101%);
 }
@@ -252,4 +254,64 @@ p {
 .done-tasks .task .description .name {
   color: grey;
   text-decoration: line-through;
+}
+
+/* Media queries --------------------------------------------------------- */
+@media (max-width: 480px) {
+
+  header {
+    padding: 0 1em;
+  }
+
+  header .user-info a {
+    margin-left: 0;
+  }
+
+  .user-info {
+    font-size: .9em;
+    gap: 20px;
+  }
+
+  a, #user-name {
+    padding: .7em 0;
+  }
+
+  .todo-tasks, .done-tasks {
+    margin: 10%;
+    width: 80%;
+  }
+
+  .new-task {
+    margin: auto;
+    padding: .7em;
+  }
+
+  .new-task button, .task button.delete {
+    margin: .5em;
+  }
+
+  .title-done-tasks {
+    margin-left: 5%;
+  }
+
+  p {
+    padding: .5em;
+  }
+
+  .task {
+    font-size: 1em;
+    width: 100%;
+  }
+
+  .task button.delete {
+    margin: .5em;
+  }
+
+  .task .description {
+    padding: .25em .75em;
+  }
+
+  .task .timestamp {
+    font-size: .7em;
+  }
 }
